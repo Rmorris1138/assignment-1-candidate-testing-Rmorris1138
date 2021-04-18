@@ -59,7 +59,7 @@ function gradeQuiz(candidateAns) {
 
     if (candidateAnswers[y].toLowerCase() == correctAnswers[y].toLowerCase()) {
       console.log(`Question ${y+1}\) Correct`);
-      grade ++;
+      grade += 20;
     } else {
       console.log(`Question ${y+1}\) Incorrect`);
     };
@@ -77,14 +77,14 @@ function runProgram() {
   // console.log("Candidate Name: " + candidateName);
   // console.log(gradeQuiz(this.candidateAnswers));
   let finalGrade = 0
-  finalGrade = gradeQuiz(candidateAnswers)
+  finalGrade = gradeQuiz(candidateAnswers)/20
   for(i = 0 ; i < correctAnswers.length ; i++) {
     console.log(`${i+1}\) ${questions[i]}`)
     console.log('Your Answer : ',  candidateAnswers[i]);
     console.log('Correct Answer : ',  correctAnswers[i]);
 
   }
-  console.log(`>>> Overall Grade: ${finalGrade*20}% \(${finalGrade} of ${questions.length} responses correct\) <<<`);
+  console.log(`>>> Overall Grade: ${(finalGrade/questions.length)*100}% \(${finalGrade} of ${questions.length} responses correct\) <<<`);
   if (finalGrade >= 4) {
     console.log(">>> Status: PASS <<<")
   } else {

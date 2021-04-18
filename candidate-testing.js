@@ -9,10 +9,10 @@ let question = "Who was the first American woman in space? ";
 let correctAnswer = "Sally Ride";
 let candidateAnswer = "";
 let questions = ["Who was the first American woman in space? ",
-  "true or false: 5000 meters = 5 kilometers? ",
+  "True or false: 5 kilometer == 5000 meters? ",
   "(5 + 3)/2 * 10 = ? ",
   "Given the array [8, 'Orbit', 'Trajectory', 45], what entry is at index 2? ",
-  "What is the minimum crew size for the International Space Station (ISS)? "];;
+  "What is the minimum crew size for the ISS? "];
 let correctAnswers = ["Sally Ride", "true", "40", "Trajectory", "3"];
 let candidateAnswers = [];
 
@@ -58,7 +58,10 @@ function gradeQuiz(candidateAns) {
   for (let y = 0; y < candidateAnswers.length; y++) {
 
     if (candidateAnswers[y].toLowerCase() == correctAnswers[y].toLowerCase()) {
-      grade += 20;
+      console.log(`Question ${y+1}\) Correct`);
+      grade ++;
+    } else {
+      console.log(`Question ${y+1}\) Incorrect`);
     };
   };
   return grade;
@@ -67,15 +70,22 @@ function gradeQuiz(candidateAns) {
 function runProgram() {
   askForName();
   // TODO 1.1c: Ask for candidate's name //
+  console.log(`Hello: ${candidateName}`);
 
   askQuestion();
   // console.clear;
   // console.log("Candidate Name: " + candidateName);
   // console.log(gradeQuiz(this.candidateAnswers));
+  let finalGrade = 0
+  finalGrade = gradeQuiz(candidateAnswers)
+  for(i = 0 ; i < correctAnswers.length ; i++) {
+    console.log(`${i+1}\) ${questions[i]}`)
+    console.log('Your Answer : ',  candidateAnswers[i]);
+    console.log('Correct Answer : ',  correctAnswers[i]);
 
-  
-  console.log(`>>> Overall Grade: ${gradeQuiz(candidateAnswers)}% \(${gradeQuiz(candidateAnswers)/20} of ${questions.length} responses correct\) <<<`);
-  if (gradeQuiz(candidateAnswers) >= 80) {
+  }
+  console.log(`>>> Overall Grade: ${finalGrade*20}% \(${finalGrade} of ${questions.length} responses correct\) <<<`);
+  if (finalGrade >= 4) {
     console.log(">>> Status: PASS <<<")
   } else {
     console.log(">>> Status: FAILED <<<")

@@ -94,7 +94,6 @@ describe("Candidate Testing solution", function() {
       solution.candidateAnswers = ["sally ride", "TRUE", "40", "TrAjEcToRy", "3"];
       expect(solution.gradeQuiz(solution.candidateAnswers)).toBe(100);
     });
-  */
 
 
 });

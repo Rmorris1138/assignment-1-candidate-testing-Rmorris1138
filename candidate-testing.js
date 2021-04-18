@@ -3,15 +3,20 @@ const input = require('readline-sync');
 // TODO 2: modify your quiz app to ask 5 questions //
 
 // TODO 1.1a: Define candidateName // 
-let candidateName;
+let candidateName = "";
 // TODO 1.2a: Define question, correctAnswer, and candidateAnswer //
-let question;
-let correctAnswer;
-let candidateAnswer;
-let questions;
-let correctAnswers;
-let candidateAnswers;
+let question = "Who was the first American woman in space? ";
+let correctAnswer = "Sally Ride";
+let candidateAnswer = "";
+let questions = ["Who was the first American woman in space? ",
+  "true or false: 5000 meters = 5 kilometers? ",
+  "(5 + 3)/2 * 10 = ? ",
+  "Given the array [8, 'Orbit', 'Trajectory', 45], what entry is at index 2? ",
+  "What is the minimum crew size for the International Space Station (ISS)? "];;
+let correctAnswers = ["Sally Ride", "true", "40", "Trajectory", "3"];
+let candidateAnswers = [];
 
+/*
 questions = 0;
 correctAnswers = 0;
 candidateAnswers = 0;
@@ -27,22 +32,19 @@ question = ["Who was the first American woman in space: ",
 //correctAnswer = "Sally Ride"
 correctAnswer = ["Sally Ride", true, 40, "Trajectory", 3];
 //runProgram(); 
-
+*/
 
 function askForName() {
   // TODO 1.1b: Ask for candidate's name //
   candidateName = input.question("Enter the Candidates Name: ");
+  return; // candidateName;
 }
 
 
 function askQuestion() {
   // TODO 1.2b: Ask candidate the question and assign the response as candidateAnswer //
-  for (let x = 0; x < question.length; x++) {
-    candidateAnswer.push(input.question(question[x]));
-    console.log();
-    questions = questions + 1;
-    candidateAnswers = candidateAnswers + 1;
-
+  for (let x = 0; x < questions.length; x++) {
+    candidateAnswers[x] = (input.question(questions[x]));
   }
 }
 
@@ -52,50 +54,13 @@ function gradeQuiz(candidateAns) {
   let grade = 0;
 
 
-  console.clear();
-  console.log(`Candidate Name: ${candidateName}`);
 
-  for (let y = 0; y < candidateAnswers; y++) {
-    console.log(`${y + 1}\) ${question[y]}`);
-    console.log(`Your Answer: ${candidateAnswer[y]}`);
-    console.log(`Correct Answer: ${correctAnswer[y]}`);
-    console.log("\n");
+  for (let y = 0; y < candidateAnswers.length; y++) {
 
-
-    if (typeof correctAnswer[y] == 'string') {
-      if (correctAnswer[y].toLowerCase() === candidateAnswer[y].toLowerCase()) {
-        correctAnswers++;
-      }
-
-    } else if (typeof correctAnswer[y] === 'boolean') { 
-       if ((candidateAnswer[y].toLowerCase() == 'true') == correctAnswer[y]) {
-          correctAnswers++;
-        } 
-    } else if (typeof correctAnswer[y] === 'number') {
-      console.log('Init number')
-      if (Number(candidateAnswer[y]) === correctAnswer[y]) {
-        
-        console.log('Hello number')
-        
-        console.log(typeof Number(candidateAnswer[y]));
-        console.log('number')
-        correctAnswers++;
-      }
+    if (candidateAnswers[y].toLowerCase() == correctAnswers[y].toLowerCase()) {
+      grade += 20;
     };
-
-
   };
-
-  grade = (correctAnswers / questions) * 100;
-  console.log(`>>> Overall Grade: ${grade}% \(${correctAnswers} of ${questions} responses correct\) <<<`);
-  if (grade >= 80) {
-    console.log(">>> Status: PASS <<<")
-  } else {
-    console.log(">>> Status: FAILED <<<")
-  };
-
-
-
   return grade;
 }
 
@@ -108,10 +73,17 @@ function runProgram() {
   // console.log("Candidate Name: " + candidateName);
   // console.log(gradeQuiz(this.candidateAnswers));
 
-  gradeQuiz(candidateAnswers);
+  
+  console.log(`>>> Overall Grade: ${gradeQuiz(candidateAnswers)}% \(${gradeQuiz(candidateAnswers)/20} of ${questions.length} responses correct\) <<<`);
+  if (gradeQuiz(candidateAnswers) >= 80) {
+    console.log(">>> Status: PASS <<<")
+  } else {
+    console.log(">>> Status: FAILED <<<")
+  };
 
 
-}
+};
+
 
 // Don't write any code below this line //
 // And don't change these or your program will not run as expected //

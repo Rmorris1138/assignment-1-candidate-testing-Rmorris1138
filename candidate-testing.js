@@ -16,23 +16,7 @@ let questions = ["Who was the first American woman in space? ",
 let correctAnswers = ["Sally Ride", "true", "40", "Trajectory", "3"];
 let candidateAnswers = [];
 
-/*
-questions = 0;
-correctAnswers = 0;
-candidateAnswers = 0;
-candidateAnswer = [];
 
-//question = "Who was the first American woman in space? ";
-question = ["Who was the first American woman in space: ",
-  "true or false: 5000 meters = 5 kilometers: ",
-  "(5 + 3)/2 * 10 = ",
-  "Given the array [8, 'Orbit', 'Trajectory', 45], what entry is at index 2: ",
-  "What is the minimum crew size for the International Space Station (ISS): "];
-
-//correctAnswer = "Sally Ride"
-correctAnswer = ["Sally Ride", true, 40, "Trajectory", 3];
-//runProgram(); 
-*/
 
 function askForName() {
   // TODO 1.1b: Ask for candidate's name //

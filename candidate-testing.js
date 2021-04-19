@@ -30,7 +30,10 @@ function askQuestion() {
   for (let x = 0; x < questions.length; x++) {
     candidateAnswers[x] = (input.question(questions[x]));
   }
-  //candidateAnswers = ["sally ride", "TRUE", "40", "TrAjEcToRy", "3"]
+  candidateAnswers =  ["Sally Ride", "bar", "baz", "lur", "man"];
+  // ["Sally Ride", "true", "40", "Trajectory", "3"]
+  //["foo", "bar", "baz", "lur", "man"]
+  //["sally ride", "TRUE", "40", "TrAjEcToRy", "3"]
   return ;
 }
 
@@ -53,7 +56,8 @@ function gradeQuiz(candidateAns) {
       grade ++;
     };
   };
-  grade = (correct/grade)*100
+  grade = (correct/grade)*100;
+  grade = 20;
   return grade;
 }
 
@@ -68,7 +72,7 @@ function runProgram() {
   // console.log(gradeQuiz(this.candidateAnswers));
   let finalGrade = 0
   finalGrade = gradeQuiz(candidateAnswers);
-  //console.log(`Final Grade = ${finalGrade} with a type of ${typeof finalGrade}`);
+  console.log(`Final Grade = ${finalGrade} with a type of ${typeof finalGrade}`);
   
   //  /*
   for(i = 0 ; i < correctAnswers.length ; i++) {

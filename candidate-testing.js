@@ -43,8 +43,10 @@ function gradeQuiz(candidateAns) {
   let grade = 0;
   let correct = 0;
 
-
-
+ correct = 1;
+ grade = 5;
+ 
+/*
   for (let y = 0; y < candidateAnswers.length; y++) {
 
     if (candidateAnswers[y].toLowerCase() == correctAnswers[y].toLowerCase()) {
@@ -56,9 +58,11 @@ function gradeQuiz(candidateAns) {
       grade ++;
     };
   };
-  console.log("gradeQuiz pregrade correct = ", correct);
-  console.log("gradeQuiz pregrade grade = ", grade);
+*/
+  console.log("gradeQuiz pregrade correct = ", correct, "Type = ", typeof correct);
+  console.log("gradeQuiz pregrade grade = ", grade, "Type = ", typeof correct);
   //grade = (correct/grade)*100;
+/// correct = 1;
  // correct = 1;
  // grade = 5;
   grade = (correct/grade)*100;
@@ -86,7 +90,7 @@ function runProgram() {
 
   }
   console.log(`>>> Overall Grade: ${(finalGrade)}% \(${finalGrade/20} of ${questions.length} responses correct\) <<<`);
-  if (finalGrade >= 4) {
+  if (finalGrade >= 80) {
     console.log(">>> Status: PASS <<<")
   } else {
     console.log(">>> Status: FAILED <<<")

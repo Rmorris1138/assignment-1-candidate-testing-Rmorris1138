@@ -43,9 +43,15 @@ function gradeQuiz(candidateAns) {
   let grade = 0;
   let correct = 0;
 
- correct = 1;
- grade = 5;
- 
+ //correct = 1;
+ correct++;
+// grade = 5;
+ grade++;
+ grade++;
+ grade++;
+ grade++;
+ grade++;
+
 /*
   for (let y = 0; y < candidateAnswers.length; y++) {
 

@@ -44,13 +44,23 @@ function gradeQuiz(candidateAns) {
   let correct = 0;
 
  //correct = 1;
- correct++;
+// correct++;
 // grade = 5;
  grade++;
  grade++;
  grade++;
  grade++;
  grade++;
+
+for (let y = 0; y < candidateAnswers.length; y++){
+  if(candidateAnswers[y].toLowerCase()==correctAnswers[y].toLowerCase()){
+    console.log('Question ${y+1}\) Correct');
+    correct++;
+    //
+  };
+};
+
+
 
 /*
   for (let y = 0; y < candidateAnswers.length; y++) {

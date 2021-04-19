@@ -52,7 +52,7 @@ function gradeQuiz(candidateAns) {
       grade ++;
     };
   };
-  return 40;//(correct/grade)*100;
+  return Number((correct/grade)*100);
 }
 
 function runProgram() {

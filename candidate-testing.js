@@ -30,7 +30,8 @@ function askQuestion() {
   for (let x = 0; x < questions.length; x++) {
     candidateAnswers[x] = (input.question(questions[x]));
   }
-  return;
+  //candidateAnswers = ["sally ride", "TRUE", "40", "TrAjEcToRy", "3"]
+  return ;
 }
 
 function gradeQuiz(candidateAns) {
@@ -52,7 +53,8 @@ function gradeQuiz(candidateAns) {
       grade ++;
     };
   };
-  return Number((correct/grade)*100);
+  grade = (correct/grade)*100
+  return grade;
 }
 
 function runProgram() {
@@ -66,8 +68,9 @@ function runProgram() {
   // console.log(gradeQuiz(this.candidateAnswers));
   let finalGrade = 0
   finalGrade = gradeQuiz(candidateAnswers);
-  console.log(finalGrade);
+  //console.log(`Final Grade = ${finalGrade} with a type of ${typeof finalGrade}`);
   
+  //  /*
   for(i = 0 ; i < correctAnswers.length ; i++) {
     console.log(`${i+1}\) ${questions[i]}`)
     console.log('Your Answer : ',  candidateAnswers[i]);
@@ -80,7 +83,7 @@ function runProgram() {
   } else {
     console.log(">>> Status: FAILED <<<")
   };
-
+//*/
 
 };
 

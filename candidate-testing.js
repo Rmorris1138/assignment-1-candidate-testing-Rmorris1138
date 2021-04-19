@@ -30,12 +30,14 @@ function askQuestion() {
   for (let x = 0; x < questions.length; x++) {
     candidateAnswers[x] = (input.question(questions[x]));
   }
+  return;
 }
 
 function gradeQuiz(candidateAns) {
 
   // TODO 1.2c: Let the candidate know if they have answered the question correctly or incorrectly // 
   let grade = 0;
+  let correct = 0;
 
 
 
@@ -43,12 +45,14 @@ function gradeQuiz(candidateAns) {
 
     if (candidateAnswers[y].toLowerCase() == correctAnswers[y].toLowerCase()) {
       console.log(`Question ${y+1}\) Correct`);
-      grade += 20;
+      grade ++;
+      correct ++;
     } else {
       console.log(`Question ${y+1}\) Incorrect`);
+      grade ++;
     };
   };
-  return grade;
+  return (correct/grade)*100;
 }
 
 function runProgram() {
@@ -61,14 +65,16 @@ function runProgram() {
   // console.log("Candidate Name: " + candidateName);
   // console.log(gradeQuiz(this.candidateAnswers));
   let finalGrade = 0
-  finalGrade = gradeQuiz(candidateAnswers)/20
+  finalGrade = gradeQuiz(candidateAnswers);
+  console.log(finalGrade);
+  
   for(i = 0 ; i < correctAnswers.length ; i++) {
     console.log(`${i+1}\) ${questions[i]}`)
     console.log('Your Answer : ',  candidateAnswers[i]);
     console.log('Correct Answer : ',  correctAnswers[i]);
 
   }
-  console.log(`>>> Overall Grade: ${(finalGrade/questions.length)*100}% \(${finalGrade} of ${questions.length} responses correct\) <<<`);
+  console.log(`>>> Overall Grade: ${(finalGrade)}% \(${finalGrade/20} of ${questions.length} responses correct\) <<<`);
   if (finalGrade >= 4) {
     console.log(">>> Status: PASS <<<")
   } else {

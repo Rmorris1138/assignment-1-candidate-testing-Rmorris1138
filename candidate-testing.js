@@ -56,9 +56,11 @@ function gradeQuiz(candidateAns) {
       grade ++;
     };
   };
+  console.log("gradeQuiz pregrade correct = ", correct);
+  console.log("gradeQuiz pregrade grade = ", grade);
   //grade = (correct/grade)*100;
-  correct = 1;
-  grade = 5;
+ // correct = 1;
+ // grade = 5;
   grade = (correct/grade)*100;
   return grade;
 }

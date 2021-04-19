@@ -56,8 +56,8 @@ function gradeQuiz(candidateAns) {
       grade ++;
     };
   };
-  grade = (correct/grade)*100;
-  grade = 1/5*100;
+  //grade = (correct/grade)*100;
+  grade = correct/5*100;
   return grade;
 }
 
